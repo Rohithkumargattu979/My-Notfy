@@ -12,11 +12,13 @@
     <com.google.android.gms.common.SignInButton
         android:id="@+id/gsignin"
         android:layout_width="295dp"
-        android:layout_height="38dp"
+        android:layout_height="42dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+
 
     <TextView
         android:id="@+id/textView3"
