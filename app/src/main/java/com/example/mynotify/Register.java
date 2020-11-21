@@ -1,5 +1,6 @@
 package com.example.mynotify;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     TextView mLoginBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         mRegisterBtn = findViewById(R.id.Rbutton);
         mLoginBtn = findViewById(R.id.createText);
         fAuth = FirebaseAuth.getInstance();
-        progressBar = findViewById(R.id.progressBar);
+        //progressBar = findViewById(R.id.progressBar);
 
 
         if (fAuth.getCurrentUser() != null) {
@@ -92,7 +94,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 mPassword.setError("Password must be at least 6 characters long");
                 return;
             }
-            progressBar.setVisibility(View.VISIBLE);
+            progressDialog = new ProgressDialog(Register.this);
+            progressDialog.show();
+            progressDialog.setContentView(R.layout.progress_dialog);
+            progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            //progressBar.setVisibility(View.VISIBLE);
             fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 //to check if the user is registered successfully or not
                 if (task.isSuccessful()) {
@@ -104,7 +110,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
             });
 
+
+
         });
+
 
         mLoginBtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Login.class)));
 //The code from below is for facebook login
@@ -192,8 +201,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        progressDialog.dismiss();
+    }
 
     //////////////////////////////////////////////////GMAIL//////////////////////////////////////////////////////////////////
 //facebook///////////////////////////////////////////////////////////////////////////////////////////////////////////////

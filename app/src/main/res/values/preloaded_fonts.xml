@@ -2,5 +2,10 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/amarante</item>
+        <item>@font/antic</item>
+        <item>@font/berkshire_swash</item>
+        <item>@font/bungee</item>
+        <item>@font/hammersmith_one</item>
+        <item>@font/righteous</item>
     </array>
 </resources>

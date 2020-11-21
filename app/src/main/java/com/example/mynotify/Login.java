@@ -1,5 +1,6 @@
 package com.example.mynotify;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private int RC_SIGN_IN = 1;
+    ProgressDialog progressDialog;
     private static final String TAG = "FacebookAuthentication";
 
     @Override
@@ -66,7 +68,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         fAuth = FirebaseAuth.getInstance();
-        progressBar = findViewById(R.id.progressBar);
+        //progressBar = findViewById(R.id.progressBar);
         mLoginBtn = findViewById(R.id.loginbtn);
         mCreateBtn= findViewById(R.id.createText);
 
@@ -89,7 +91,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 mPassword.setError("Password must be at least 6 characters long");
                 return;
             }
-            progressBar.setVisibility(View.VISIBLE);
+            progressDialog = new ProgressDialog(Login.this);
+            progressDialog.show();
+            progressDialog.setContentView(R.layout.progress_dialog);
+            progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            //progressBar.setVisibility(View.VISIBLE);
 
             //authenticating the user
 
@@ -194,8 +200,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
     }
-
-
+    @Override
+    public void onBackPressed() {
+        progressDialog.dismiss();
+    }
 
 
     //////////////////////////////////////////////////GMAIL//////////////////////////////////////////////////////////////////
