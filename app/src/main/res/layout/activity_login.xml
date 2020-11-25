@@ -86,28 +86,30 @@
         android:textColor="#000000">
 
     </Button>
+
     <Button
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:textSize="18sp"
+        android:layout_gravity="center"
         android:layout_margin="20sp"
         android:width="200dp"
-        android:layout_gravity="center">
+        android:fontFamily="@font/montserrat"
+        android:text="Sign In"
+        android:textSize="18sp">
 
     </Button>
+
     <TextView
         android:id="@+id/createText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
+        android:fontFamily="@font/patrick_hand"
         android:text="New User? Sign Up Here"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_marginTop="25sp"
-        android:fontFamily="@font/righteous"
-        android:layout_gravity="center"
-        />
+        android:textSize="20sp" />
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="295dp"

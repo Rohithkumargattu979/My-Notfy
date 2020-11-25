@@ -52,7 +52,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private int RC_SIGN_IN = 1;
     private static final String TAG = "FacebookAuthentication";
-    EditText mFullName, mEmail, mPassword, mPhone;
+    EditText mFullName, mEmail, mPassword, mPhone, mpassword1;
     Button mRegisterBtn;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
@@ -66,7 +66,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         mFullName = findViewById(R.id.fullName);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
-        mPhone = findViewById(R.id.phone);
+        mpassword1 = findViewById(R.id.cpassword);
+        //mPhone = findViewById(R.id.phone);
         mRegisterBtn = findViewById(R.id.Rbutton);
         mLoginBtn = findViewById(R.id.createText);
         fAuth = FirebaseAuth.getInstance();
@@ -81,6 +82,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         mRegisterBtn.setOnClickListener(v -> {
             String email = mEmail.getText().toString().trim();
             String password = mPassword.getText().toString().trim();
+            String confirmPassword = mpassword1.getText().toString().trim();
 
             if (TextUtils.isEmpty(email)) {
                 mEmail.setError("Email is Required");
@@ -92,6 +94,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             }
             if (password.length() < 6) {
                 mPassword.setError("Password must be at least 6 characters long");
+                return;
+            }
+            if(password.equals(confirmPassword))
+            {
+                password = confirmPassword;
+            }
+            else{
+                mpassword1.setError("Enter the same password as above");
                 return;
             }
             progressDialog = new ProgressDialog(Register.this);

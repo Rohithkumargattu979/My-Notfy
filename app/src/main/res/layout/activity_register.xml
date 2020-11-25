@@ -98,7 +98,7 @@
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
+       <!-- <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -112,27 +112,29 @@
                 app:passwordToggleEnabled="true">
 
             </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>-->
     </LinearLayout>
 
     <Button
         android:id="@+id/Rbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:textSize="18sp"
         android:layout_gravity="center"
-        />
+        android:fontFamily="@font/montserrat"
+        android:text="Register"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/createText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already Have Account? Login Here"
-        android:fontFamily="@font/righteous"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:layout_gravity="center"/>
+        android:fontFamily="@font/patrick_hand"
+        android:text="Already Have Account? Login Here"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="295dp"
