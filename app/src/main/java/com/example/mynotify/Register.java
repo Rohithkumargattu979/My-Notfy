@@ -96,11 +96,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 mPassword.setError("Password must be at least 6 characters long");
                 return;
             }
-            if(password.equals(confirmPassword))
-            {
+            if (password.equals(confirmPassword)) {
                 password = confirmPassword;
-            }
-            else{
+            } else {
                 mpassword1.setError("Enter the same password as above");
                 return;
             }
@@ -109,17 +107,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             progressDialog.setContentView(R.layout.progress_dialog);
             progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             //progressBar.setVisibility(View.VISIBLE);
-            fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener((Task<AuthResult> task) -> {
                 //to check if the user is registered successfully or not
                 if (task.isSuccessful()) {
                     Toast.makeText(Register.this, "User Created", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Register.this.startActivity(new Intent(Register.this.getApplicationContext(), OtpActivity.class));
                 } else {
                     Toast.makeText(Register.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             });
-
 
 
         });
@@ -211,10 +208,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
     }
 
-    @Override
+   /* @Override
     public void onBackPressed() {
         progressDialog.dismiss();
-    }
+    }*/
 
     //////////////////////////////////////////////////GMAIL//////////////////////////////////////////////////////////////////
 //facebook///////////////////////////////////////////////////////////////////////////////////////////////////////////////

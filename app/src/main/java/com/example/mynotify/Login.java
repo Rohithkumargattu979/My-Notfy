@@ -200,10 +200,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
     }
-    @Override
+   /* @Override
     public void onBackPressed() {
         progressDialog.dismiss();
-    }
+    }*/
 
 
     //////////////////////////////////////////////////GMAIL//////////////////////////////////////////////////////////////////

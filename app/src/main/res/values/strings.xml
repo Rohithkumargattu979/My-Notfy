@@ -2,4 +2,8 @@
     <string name="app_name">My Notify</string>
     <string name="facebook_app_id">2707459039506122</string>
     <string name="fb_login_protocol_scheme">fb2707459039506122</string>
+    <string name="my_notify">My Notify</string>
+    <string name="log_out">log_out</string>
+    <string name="log_out1">Log out</string>
+    <string name="home">home</string>
 </resources>

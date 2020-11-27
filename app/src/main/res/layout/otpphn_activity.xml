@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="-100dp"
+        android:layout_marginTop="-70dp"
+        android:src="@drawable/logo"
+        tools:ignore="InvalidId"
+        android:padding="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTP VERIFICATION"
+        android:layout_marginTop="-200dp"
+        android:layout_marginLeft="120dp"
+        android:textSize="30dp"
+        android:textColor="#1c1c1a"
+        android:fontFamily="@font/montserrat" />
+
+    <Spinner android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        style="@style/Spinner"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-45dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Phone">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btn_generate_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20sp"
+        android:width="200dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Generate OTP"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timer"
+        android:textSize="30sp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-100dp"
+        android:visibility="invisible"
+        android:padding="10dp"
+        android:layout_below="@id/btn_generate_otp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/otpEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone"
+        android:clickable="false"
+        android:layout_marginLeft="20dp"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:hint="Enter Otp"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20sp"
+        android:width="200dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Verify and Sign IN"
+        android:textSize="14sp"
+        android:visibility="invisible"/>
+
+
+</LinearLayout>

@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
@@ -21,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     GoogleSignInClient mGoogleSignInClient;
+    DrawerLayout drawerLayout;
 
     //Creating member variable for FirebaseAuth
     private FirebaseAuth mAuth;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        drawerLayout=findViewById(R.id.drawer_layout);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         //Building Google sign-in and sign-up option.
@@ -45,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
     }
+    ///////////////////////////////////layout code begins/////////////////////////////////
+
+    //////////////////////////////////layout code ends///////////////////////////////////
     public void logout(View view)
     {
         FirebaseAuth.getInstance().signOut();
