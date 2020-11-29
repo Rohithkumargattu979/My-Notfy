@@ -6,4 +6,13 @@
     <string name="log_out">log_out</string>
     <string name="log_out1">Log out</string>
     <string name="home">home</string>
+    <string name="item_description">Item Description</string>
+    <string name="add">Add</string>
+    <string name="number_of_items">Number of items</string>
+    <string name="name_of_the_item">Name of the item</string>
+    <string name="share">Share</string>
+    <string name="add_event">Add Event</string>
+    <string name="name_of_the_event">Name of the event</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
 </resources>

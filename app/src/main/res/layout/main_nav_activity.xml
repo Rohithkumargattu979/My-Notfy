@@ -6,22 +6,34 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@id/profile"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_margin="16dp"
-        android:onClick="ClickLogo"
-        android:src="@drawable/ic_baseline_mood_24" />
+        android:layout_marginTop="16dp"
+        android:onClick="ClickProfile"
+        android:src="@drawable/ic_profile" />
+
+    <TextView
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat"
+        android:text="Profile"
+        android:onClick="ClickProfile"
+        android:textColor="@color/black"
+        android:textSize="24dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/my_notify"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
+        android:fontFamily="cursive"
         android:gravity="center_horizontal"
-        android:fontFamily="@font/montserrat"
-        android:textColor="#636363"/>
+        android:text="@string/my_notify"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -65,13 +77,13 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="#f2f04e"
-        android:onClick="ClickProfile">
+        android:onClick="ClickTrigger">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Profile"
+            android:text="Trigger"
             android:textColor="@color/black"
             android:fontFamily="@font/montserrat"
             android:padding="12dp"/>
@@ -81,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
             android:layout_marginRight="48dp"
-            android:src="@drawable/ic_profile" />
+            android:src="@drawable/ic_trigger" />
 
 
     </LinearLayout>
@@ -164,24 +176,20 @@
             android:src="@drawable/ic_office"/>
 
 
-
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="#f2f04e"
-        android:onClick="ClickLogout">
+        android:onClick="ClickShare">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/log_out1"
-            android:id="@+id/logout1"
-            android:onClick="logout"
+            android:text="Share"
             android:textColor="@color/black"
             android:fontFamily="@font/montserrat"
             android:padding="12dp"/>
@@ -190,12 +198,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
             android:layout_marginRight="48dp"
-            android:src="@drawable/ic_logout"/>
+            android:src="@drawable/ic_share"/>
+
 
 
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -222,6 +230,45 @@
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#f2f04e"
+        android:onClick="logout">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/log_out1"
+            android:id="@+id/logout1"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat"
+            android:padding="12dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:src="@drawable/ic_logout"/>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f2f04e"/>
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

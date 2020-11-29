@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF"
+    tools:context=".Addingitemshousehold">
+
+
+    <ImageButton
+        android:id="@+id/imageselecthousehold"
+        android:layout_width="184dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/itemnamehousehold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_imageaddbtn" />
+
+    <EditText
+        android:id="@+id/itemnamehousehold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/name_of_the_item"
+        app:layout_constraintBottom_toTopOf="@+id/itemnumberhousehold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageselecthousehold" />
+
+    <EditText
+        android:id="@+id/itemnumberhousehold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/number_of_items"
+        app:layout_constraintBottom_toTopOf="@+id/itemdescriptionhousehold"
+        app:layout_constraintStart_toStartOf="@+id/itemnamehousehold"
+        app:layout_constraintTop_toBottomOf="@+id/itemnamehousehold" />
+
+    <EditText
+        android:id="@+id/itemdescriptionhousehold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/item_description"
+        app:layout_constraintBottom_toTopOf="@+id/addtodatabasehousehold"
+        app:layout_constraintStart_toStartOf="@+id/itemnumberhousehold"
+        app:layout_constraintTop_toBottomOf="@+id/itemnumberhousehold" />
+
+    <Button
+        android:id="@+id/addtodatabasehousehold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="124dp"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemdescriptionhousehold" />
+</androidx.constraintlayout.widget.ConstraintLayout>

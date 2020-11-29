@@ -14,6 +14,28 @@
 
         <include
             layout="@layout/main_toolbar"/>
+        <TextView
+            android:id="@+id/emailnot"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="Email not verified!"
+            android:textColor="#fc1c03"
+            android:gravity="center"
+            android:layout_marginTop="-50dp"
+            android:textSize="24dp"
+            android:fontFamily="@font/montserrat"
+            android:visibility="invisible"/>
+        <Button
+            android:id="@+id/resendmail"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat"
+            android:text="Verify Now"
+            android:textSize="18sp"
+            android:layout_marginTop="-70dp"
+            android:visibility="invisible"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -21,7 +43,8 @@
             android:text="Home"
             android:textSize="50sp"
             android:textStyle="bold"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginTop="-120dp"/>
 
     </LinearLayout>
 

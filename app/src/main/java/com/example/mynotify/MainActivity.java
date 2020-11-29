@@ -1,8 +1,12 @@
 package com.example.mynotify;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +20,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +30,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     GoogleSignInClient mGoogleSignInClient;
     DrawerLayout drawerLayout;
+    Button resendmail;
+    TextView emailnot;
+    String userId;
 
     //Creating member variable for FirebaseAuth
     private FirebaseAuth mAuth;
@@ -36,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         //Building Google sign-in and sign-up option.
+
 // Configuring Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
 // for the requestIdToken, use getString(R.string.default_web_client_id), this is in the values.xml file that
@@ -47,10 +57,92 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        //////////////mail verification/////////////
+        resendmail = findViewById(R.id.resendmail);
+        emailnot = findViewById(R.id.emailnot);
+        userId = mAuth.getCurrentUser().getUid();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(!currentUser.isEmailVerified())
+        {
+            resendmail.setVisibility(View.VISIBLE);
+            emailnot.setVisibility(View.VISIBLE);
+            resendmail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    currentUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(v.getContext(), "Verification Email has been sent" , Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("Tag", "onFailure: Email not sent" + e.getMessage());
+                        }
+                    });
+
+                }
+            });
+        }
+        /////////////////////mail ver end/////////////
 
     }
     ///////////////////////////////////layout code begins/////////////////////////////////
-
+    public static void redirectActivity(Activity activity, Class aClass) {
+        //Initialise intent
+        Intent intent = new Intent(activity,aClass);
+        //Set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //Start activity
+        activity.startActivity(intent);
+    }
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        //close drawer layout
+        //check condition
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            //when drawer is open
+            //close drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        //Open drawer layout
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+    public void ClickMenu(View view){
+        //Open drawer
+        openDrawer(drawerLayout);
+    }
+    public void ClickHome(View view){
+        //Redirect activity to home
+       recreate();
+    }
+    public void ClickStudent(View view){
+        //redirect activity to student
+        redirectActivity(this,Student.class);
+    }
+    public void ClickHousehold(View view){
+        //Redirect activity to household
+        redirectActivity(this,Household.class);
+    }
+    public void ClickOffice(View view){
+        //Redirect activity to office
+        redirectActivity(this,Office.class);
+    }
+    public void ClickProfile(View view){
+        //Redirect activity to Profile
+        redirectActivity(this,Profile.class);
+    }
+    public void ClickTrigger(View view){
+        redirectActivity(this,Trigger.class);
+    }
+    public void ClickRateus(View view){
+        //Redirect activity to Rate us
+        redirectActivity(this,Rateus.class);
+    }
+    public void ClickShare(View view){
+        redirectActivity(this,Share.class);
+    }
     //////////////////////////////////layout code ends///////////////////////////////////
     public void logout(View view)
     {
@@ -65,9 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 // Checking if the user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if (currentUser != null) {
+      /*  if (currentUser != null) {
             Toast.makeText(this, "Currently Logged in: " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
-        }
+        }*/
     }
     private void signOut() {
 // Firebase sign out

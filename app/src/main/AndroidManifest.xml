@@ -12,6 +12,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNotify">
+        <activity android:name=".Share">
+
+        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+        <activity android:name=".Addingevents" />
+        <activity android:name=".Todotask" />
+        <activity android:name=".TimerActivity" />
+        <activity android:name=".Calendar" />
+        <activity android:name=".Trigger" />
+        <activity android:name=".Rateus" />
+        <activity
+            android:name=".Addingitemsoffice"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Addingitemshousehold"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".Addingitems"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".Office" />
+        <activity android:name=".Household" />
+        <activity android:name=".Student" />
+        <activity android:name=".Profile" />
         <activity android:name=".Login" />
         <activity android:name=".Register">
             <intent-filter>
@@ -21,7 +52,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".OtpActivity" />
+        <activity
+            android:name=".AddModifyTask"
+            android:windowSoftInputMode="adjustResize" />
 
         <meta-data
             android:name="preloaded_fonts"
